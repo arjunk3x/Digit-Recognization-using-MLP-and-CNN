@@ -86,3 +86,13 @@ in images, limiting their effectiveness for tasks like character recognition. On
 CNNs excel at image-related tasks due to their ability to learn hierarchical features through
 convolutional and pooling layers. This allows CNNs to effectively capture important patterns in
 EMNIST characters.
+
+![image](https://github.com/arjunk3x/Digit-Recognization-using-MLP-and-CNN/assets/147756161/6d51c3e0-4bdf-4f8f-9cc3-290f8bb46670)
+
+![image](https://github.com/arjunk3x/Digit-Recognization-using-MLP-and-CNN/assets/147756161/162a7626-23d2-4972-b1c7-144c59ac828d)
+
+![image](https://github.com/arjunk3x/Digit-Recognization-using-MLP-and-CNN/assets/147756161/07b54f69-ef16-4ef5-930c-540629e9567d)
+
+![image](https://github.com/arjunk3x/Digit-Recognization-using-MLP-and-CNN/assets/147756161/f12c7b27-7112-4d60-b639-56f07d9f5455)
+
+
