@@ -1,4 +1,7 @@
 # Digit-Recognization-using-MLP-and-CNN
+
+Datset in this link : https://www.kaggle.com/datasets/crawford/emnist/data?select=emnist-balanced-train.csv
+
 This repository explores two powerful deep learning architectures for digit prediction: Convolutional Neural Networks (CNNs) and Multilayer Perceptrons (MLPs).
 **Data Preprocessing: **
 After the data is converted to arrays, we divide each value by 255 to
