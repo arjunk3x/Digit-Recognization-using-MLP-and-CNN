@@ -27,9 +27,9 @@ framework for image classification tasks. Our model has several important compon
 Convolutional layers that learn to extract useful features from the input images. We used
 activation functions like ReLU, Leaky ReLU, ELU, or TANH to introduce nonlinearity. Batch
 normalizationlayerswereaddedtostabilize andspeedupthetrainingprocess.Then,
-Max-poolinglayerswereaddedtoreducethe sizeofthefeature mapsandpreventoverfitting.
+Max-poolinglayers were added t oreduc ethe size of the feature maps and preven toverfitting.
 Additional convolutional layers to extract more complicated features. Afterwards, Flatten layers
-wereaddedtoconvertthemulti-dimensionalfeature mapsintoaformatsuitableforthedense 
+were added to convert the multi-dimensional feature maps into a format suitable for the dense 
 (fully connected) layers.
 Then, Dropout regularization were added in the dense layers to reduce overfitting. And finally a
 softmax-activated layer for multi-class classification. We carefully optimized the model's
@@ -47,31 +47,25 @@ We have set up our tuners with Random Search CV to perform a thorough investigat
 of the hyperparameter space. In each trial, relevant models are built, hyperparameter combinations are sampled at random, and cross-validation techniques are used to assess the models' performance. A maximum of ten hyperparameter combinations per trial are taken into consideration in the goal of maximizing validation accuracy. To further improve the optimization process, we have included callbacks for learning rate scheduling during training.
 
 _a) Optimizers:_ 
-Theoptimizerweuseinourneuralnetworktrainingisessentialtoobtaining effective convergence and model performance. We've used a variety of optimizers designed for particular tasks: Adagrad adjusts learning rates to the size of gradients, balancing updates for frequent and infrequent parameters, whereas RMSprop adjusts the learning rate based on previous squared gradients to provide smoother updates. By dynamically altering learning rates without requiring initial settings, Adadelta further improves adaptability. Stochastic updates based on sampling gradients are the basis provided by SGD, which strikes a balance between noise robustness and efficiency.
+The optimizer weuse in our neural network training is essential to obtaining effective convergence and model performance. We've used a variety of optimizers designed for particular tasks: Adagrad adjusts learning rates to the size of gradients, balancing updates for frequent and infrequent parameters, whereas RMSprop adjusts the learning rate based on previous squared gradients to provide smoother updates. By dynamically altering learning rates without requiring initial settings, Adadelta further improves adaptability. Stochastic updates based on sampling gradients are the basis provided by SGD, which strikes a balance between noise robustness and efficiency.
 Adam uses momentum in conjunction with RMSprop's adaptive learning rates to provide
 quicker convergence and better generalization. Adam combines the benefits of momentum and adaptive learning rates from RMSprop, potentially leading to quicker
 convergence and better generalization in our dataset.
 _b) Adaptive learning rate:_ 
 We've employed the Step decay and Cosine annealing decay
-methods as part of our adaptive learning rate strategy. The two techniques systematically reducethelearningrate atspecificpointsinthetrainingprocess.Cosineannealingdecay adjuststhe learningratefollowingacosinefunction'sdecaypattern.Thisenhancesthe 
-_training dynamics and helps the model converge more effectively in our dataset.
+methods as part of our adaptive learning rate strategy. The two techniques systematically reducethelearningrate at specifi cpoints in the training process.Cosineannealingdecay adjusts the learning rate followin ga cosinefunction's decay pattern.Thi senhances the _training dynamics and helps the model converge more effectively in our dataset.
 c) Batch Normalization:_
 It improves the training dynamics of neural network models by stabilizing and accelerating convergence through the normalization of layer activations
 within mini-batches. We could see that better results were obtained with
 Batch_Normalization ON.
 _d) Dropout Layer:_
-One of the key strategiestopreventoverfittinginaneuralnetworkisto incorporate dropout layers, which randomly deactivate a percentage of neurons during training. This encourages the network to focus on more diverse features. By adjusting dropout rates such as 0.2 and 0.4, we can strike a good balance between preventing overfitting while still preserving important information, ultimately improving the model's
+One of the key strategies to prevent overfitting in a neuralnetwork is to incorporate dropout layers, which randomly deactivate a percentage of neurons during training. This encourages the network to focus on more diverse features. By adjusting dropout rates such as 0.2 and 0.4, we can strike a good balance between preventing overfitting while still preserving important information, ultimately improving the model's
 ability to generalize..
 _e) L1 and L2 regularization:_ 
-L1 regularization encourages sparsity by penalizing the absolute values of weights, while L2 regularization promotes smoother weight distributions in our dataset by penalizing the squared values, both enhancing the model's
-generalization performance by constraining weight magnitudes.
+L1 regularization encourages sparsity by penalizing the absolute values of weights, while L2 regularization promotes smoother weight distributions in our dataset by penalizing the squared values, both enhancing the model's generalization performance by constraining weight magnitudes.
 _f) Activation Function:_ 
-Neural networks depend on activation functionstohelpthemodel recognize intricate patterns in the data. ReLU has the "dying ReLU" issue, yet it offers effective training by directly outputting the input for positive values. This problem is
-solved by Leaky ReLU, which permits a modest gradient for negative inputs. Because
-elu maintains non-zero outputs for negative inputs, it allows for faster convergence. Tanh
-is zero-centered and sigmoid and tanh are appropriate for binary classification applications. When using Softmax for multi-class classification, the output probabilities
-are guaranteed to add up to one. Every activation function offers distinct benefits and is
-selected according to the network architecture and task specifications.
+Neural networks depend on activation functions tohelp the model recognize intricate patterns in the data. ReLU has the "dying ReLU" issue, yet it offers effective training by directly outputting the input for positive values. This problem is solved by Leaky ReLU, which permits a modest gradient for negative inputs. Because elu maintains non-zero outputs for negative inputs, it allows for faster convergence. Tanh is zero-centered and sigmoid and tanh are appropriate for binary classification applications. When using Softmax for multi-class classification, the output probabilities
+are guaranteed to add up to one. Every activation function offers distinct benefits and is selected according to the network architecture and task specifications.
 
 **Overfitting/Underfitting:**
 We didn’t come across Overfitting/Underfitting since the training
